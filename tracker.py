@@ -15,7 +15,7 @@ load_dotenv()
 # Pull variables out of the hidden environment
 sender = os.getenv("SENDER_EMAIL")
 password = os.getenv("EMAIL_PASSWORD")
-receiver = "your_hotmail_account@hotmail.com"  # Hardcode or pull from os.getenv("RECEIVER_EMAIL")
+receiver = os.getenv("RECEIVER_EMAIL")  # Hardcode or pull from os.getenv("RECEIVER_EMAIL")
 
 print(f"Environment Loaded! Script configured to send from: {sender}")
 
@@ -36,7 +36,7 @@ def send_email_alert(current_price):
 
     try:
         # Standard Gmail SMTP secure configuration on port 587
-        with smtplib.SMTP("://gmail.com", 587) as server:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()  # Upgrade connection to secure TLS encryption
             server.login(sender, password)
             server.sendmail(sender, receiver, msg.as_string())
