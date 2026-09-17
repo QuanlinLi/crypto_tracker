@@ -1,0 +1,13 @@
+# Sensitive Credentials
+.env
+
+# Data and Saved Charts
+*.csv
+*.png
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
